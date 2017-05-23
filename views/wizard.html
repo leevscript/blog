@@ -1,0 +1,83 @@
+<!-- /. NAV SIDE  -->
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line">上传文章</h1>
+
+            </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        注意: 上传文件为MD文件,否则会出现错误
+                    </div>
+                    <div class="panel-body">
+                        <form id="wizard" action="/wizard" enctype="multipart/form-data">
+                            <h2>第一步</h2>
+                            <section>
+                                <div class="form-group has-success col-md-6">
+                                    <label class="control-label" for="success">文章标题</label>
+                                    <span class="text-danger">*必填</span>
+                                    <input type="text" class="form-control blog_title" name="title"/>
+                                    <label class="control-label" for="success">作者</label>
+                                    <span class="text-danger">*必填</span>
+                                    <input type="text" class="form-control blog_name" name="name" style="width: 50%;"/>
+                                </div>
+                            </section>
+
+                            <h2>第二步</h2>
+                            <section>
+                                <div class="form-group has-success clearfix">
+                                    <div class="col-md-6">
+                                        <label class="control-label" for="success">分类</label>
+                                        <select class="form-control" name="type">
+                                            <option value="JavaScript" selected>JavaScript</option>
+                                            <option value="Node">Node</option>
+                                            <option value="H5">H5</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="其他">其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="form-group has-success">
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="complete" value="publish" checked>直接发布
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="radio" name="complete" value="unpublish">不发布
+                                    </label>
+                                </div>
+                                <div class="form-group has-success" >
+                                    <label class="control-label" for="success">文章描述</label>
+                                    <span class="text-info">&nbsp;&nbsp;(最多100字)</span>
+                                    <textarea class="form-control blog_describe" rows="3" name="describe"></textarea>
+                                    <span class="describe_length"></span>/100
+                                </div>
+                            </section>
+
+                            <h2>第三步</h2>
+                            <section>
+                                <label class="control-label" for="success">选择文件</label>
+                                <input type="file" name="file" id="filebtn" style="position: absolute; left: -9999px"/>
+                                <input type="button" class="btn btn-success" value="选择文件" id="getbtn"/>
+                                <span class="fileItem"></span>
+                            </section>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script>
+
+
+</script>

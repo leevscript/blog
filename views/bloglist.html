@@ -1,0 +1,81 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line">全部文章</h1>
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+        <!-- /. ROW  -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <!--    Context Classes  -->
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <ul class="nav nav-pills complete_lis">
+                            <li class="active"><a href="javascript:;" ng-click='removeCookieinfo("complete")'>全部 <span
+                                    class="badge">{{ count.all }}</span></a></li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("complete", "publish")'>已发布 <span class="badge">{{ count.publish }}</span></a>
+                            </li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("complete", "unpublish")'>未发布<span class="badge">{{ count.unpublish }}</span></a>
+                            </li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("complete", "draft")'>废稿 <span class="badge">{{ count.draft }}</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="nav nav-tabs type_lis">
+                            <li class="active"><a href="javascript:;" class="active" ng-click='removeCookieinfo("type")'>全部类型</a></li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("type", "JavaScript")'>JavaScript</a></li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("type", "Node")'>Node</a></li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("type", "H5")'>H5</a></li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("type", "PHP")'>PHP</a></li>
+                            <li><a href="javascript:;" ng-click='setCookieinfo("type", "其他")'>其他</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>标题</th>
+                                    <th>状态</th>
+                                    <th>类型</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="success" ng-repeat="blog in blogs">
+                                    <td style="line-height: 34px">{{ $index + 1 }}</td>
+                                    <td style="line-height: 34px">{{ blog.title }}</td>
+                                    <td style="line-height: 34px">{{ blog.complete | complete_filter}}</td>
+                                    <td style="line-height: 34px">{{ blog.type }}</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="javascript:;" ng-click="delete(blog._id)">删除</a>
+                                        <a class="btn btn-warning" href="/#!/edit/{{ blog._id }}">修改</a>
+                                        <a class="btn btn-info" href="/#!/read/{{ blog._id }}">阅览</a>
+                                        <a class="btn btn-primary" href="/static/upload_md/{{blog.file}}" download="{{blog.file}}">下载</a>
+                                        <a class="btn btn-success" href="#">发布</a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                            <ul id="pagination" class="pagination pull-right"></ul>
+                        </div>
+                    </div>
+                </div>
+                <!--  end  Context Classes  -->
+
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>

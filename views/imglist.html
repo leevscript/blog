@@ -1,0 +1,57 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line">全部图片</h1>
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+        <!-- /. ROW  -->
+        <div class="row">
+
+            <div class="col-md-12">
+                <!--    Context Classes  -->
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        文章列表
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>标题</th>
+                                    <th>图片</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="success" ng-repeat="img in imgs" >
+                                    <td style="line-height: 100px">{{ $index + 1 }}</td>
+                                    <td style="line-height: 100px">{{ img.title }}</td>
+                                    <td><img src="/static/upload_img/{{img.file}}" height="100" alt="img.describe"></td>
+                                    <td style="line-height: 100px">
+                                        <a class="btn btn-danger" href="javascript:;" ng-click="delete(img._id)">删除</a>
+                                        <a class="btn btn-success" href="javascript:;" ng-click="getURL($index)">生成URL</a>
+                                        <a class="btn btn-info" href="javascript:;" ng-click="getBase64($index)">转换base64</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <ul id="pagination" class="pagination pull-right"></ul>
+                        </div>
+                    </div>
+                </div>
+                <!--  end  Context Classes  -->
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+    </div>
+    <!-- /. PAGE INNER  -->
+    <textarea id="hiddenText" cols="30" rows="10" ng-bind="base64Text" style="position: absolute; left: -9999px"></textarea>
+</div>

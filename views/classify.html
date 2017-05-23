@@ -1,0 +1,53 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line">分类管理</h1>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <span>分类管理</span>
+                        <input type="button" class="btn-adn" value="添加分类" ng-click="addClassify()">
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>类型</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="success" ng-repeat="classify in classifies" >
+                                    <td style="line-height: 50px">{{ $index + 1 }}</td>
+                                    <td style="line-height: 50px">{{ classify.value }}</td>
+                                    <td style="line-height: 50px">
+                                        <a class="btn btn-danger" href="javascript:;" ng-click="delete(classify._id)">删除</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+    <form id="classifyForm" style="display: none;" ng-submit="addClassify()">
+        <input type="text" >
+        <button class="btn btn-success addClassify">添加</button>
+    </form>
+
+</div>

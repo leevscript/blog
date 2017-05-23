@@ -1,0 +1,86 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line">修改文章</h1>
+
+            </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        注意: 上传文件为MD文件,否则会出现错误
+                    </div>
+                    <div class="panel-body">
+                        <form action="#" enctype="multipart/form-data" id="editForm">
+                            <section>
+                                <div class="form-group has-success col-md-12">
+                                    <input type="hidden" name="id" value="{{blog._id}}">
+                                    <label class="control-label">文章标题</label>
+                                    <span class="text-danger">*必填</span>
+                                    <input type="text" class="form-control" ng-model="blog.title" name="title" style="width: 30%;"/>
+                                    <label class="control-label">作者</label>
+                                    <span class="text-danger">*必填</span>
+                                    <input type="text" class="form-control" name="name" style="width: 10%;"
+                                           ng-model="blog.name"/>
+                                    <label class="control-label">分类</label>
+                                    <select class="form-control" name="type" ng-model="blog.type" style="width: 10%;">
+                                        <option value="JavaScript">JavaScript</option>
+                                        <option value="Node">Node</option>
+                                        <option value="H5">H5</option>
+                                        <option value="PHP">PHP</option>
+                                        <option value="Other">其他</option>
+                                    </select>
+                                    <hr>
+                                    <div class="form-group has-success">
+                                        <label class="checkbox-inline">
+                                            <input type="radio" name="complete" value="publish" checked>已发布
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="radio" name="complete" value="unpublish">未发布
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="radio" name="complete" value="draft">加入废稿
+                                        </label>
+                                    </div>
+                                    <div class="form-group has-success" style="width: 50%;">
+                                        <label class="control-label">文章描述</label>
+                                        <span class="text-info">&nbsp;&nbsp;(最多100字)</span>
+                                        <textarea class="form-control blog_describe" rows="3" name="describe"
+                                                  ng-model="blog.describe"></textarea>
+                                        <span>{{ blog.describe.length }}/100</span>
+                                    </div>
+                                    <hr>
+                                    <input type="file" name="file" id="filebtn" style="position: absolute; left: -9999px"/>
+                                    <a href="/static/upload_md/{{blog.file}}" class="btn btn-info" download="{{blog.file}}">下载当前文件</a>
+                                    <a href="javascript:;" class="btn" ng-class="{true: 'btn-danger', false: 'btn-primary'}[isSend]" ng-click="changeType()">{{isSend | editType_filter}}</a>
+                                    <span class="text-info">&nbsp;&nbsp;(如果有选择文件,则以选择文件为主)</span>
+                                    <input type="button" class="btn btn-sm" value="注入文本" ng-click="insertMarkdown()">
+                                    <hr>
+                                    <div ng-show="isSend">
+                                        <label class="control-label">选择文件</label>
+                                        <input type="button" class="btn btn-success" value="选择文件" ng-click="getfile()"/>
+                                        <span class="fileItem"></span>
+                                    </div>
+                                    <div ng-hide="isSend" style="position: relative">
+                                        <textarea id="simplemde" name="markdown"></textarea>
+                                    </div>
+                                    <hr>
+                                    <input type="submit" class="btn-primary btn " value="提交">
+                                    <input type="button" class="btn-danger btn" value="重置" ng-click="reset()">
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+

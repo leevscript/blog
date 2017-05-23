@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		#box {
+			width: 300px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%)
+		}
+	</style>
+	<script>
+		/*onload = function () {
+			var box = document.getElementById("box");
+			box.style.left = (document.body.clientWidth  - box.clientWidth) / 2 + "px";
+			box.style.top = (document.body.clientHeight  - box.clientHeight) / 2 + "px";
+
+		}*/
+		window.onresize = function () {
+			console.log(document.body.clientHeight)
+		}
+	</script>
+</head>
+<body>
+<div id="father">
+	<div id="box"></div>
+</div>
+	
+</body>
+</html>

@@ -1,0 +1,95 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-head-line">账户管理</h1>
+
+            </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        账户管理
+                    </div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <div class="body course-add">
+                                <div class="brief row">
+                                    <div class="panel  col-sm-3">
+                                        <img src="{{portraitSrc}}" class="img-thumbnail" width=200/>
+                                        <h5>
+                                            <small>PICTURE</small>
+                                        </h5>
+                                        <dl class="info">
+                                            <dt>当前账户</dt>
+                                            <dd>账号：{{user.username}}</dd>
+                                            <dd>昵称：{{user.nickname}}</dd>
+                                            <dd>最后一次登录：{{last_modified}}</dd>
+                                        </dl>
+                                        <hr>
+                                        <h5>浏览</h5>
+                                        <img id="newImg" src="/static/img/demoUpload.jpg" width=200>
+                                    </div>
+                                    <div class="panel  col-sm-9">
+                                        <div class="panel-body">
+                                            <form role="form" id="mangerRegister" ng-submit="register()">
+
+                                                <div class="form-group">
+                                                    <label>账号</label>
+                                                    <input class="form-control" type="text" name="username">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>密码</label>
+                                                    <input class="form-control" type="password" name="password">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>昵称 </label>
+                                                    <input class="form-control" type="text" name="nickname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>头像上传 </label>
+                                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                        <div class="picture col-md-offset-2">
+                                                            <div class="preview">
+                                                                <img id="_img" src="/static/img/demoUpload.jpg">
+                                                            </div>
+                                                            <p class="tips">
+                                                                可上传jpg, gif, png格式文件, 图片建议尺寸大于300x150，文件大小不能超过2M。
+                                                            </p>
+
+                                                            <input type="file" id="portrait"
+                                                                   nv-file-select uploader="uploader"
+                                                                   style="position: absolute; left: -9999px">
+                                                            <input type="button" class="btn btn-success" value="选择图片"
+                                                                   ng-click="portrait()">
+                                                            <input type="button" class="btn btn-danger" value="保存"
+                                                                   ng-click="cropper()">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <input type="hidden" name="portrait" value="{{imgUrl}}">
+                                                <input type="submit" class="btn btn-danger" value="注册" >
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+</div>
+
